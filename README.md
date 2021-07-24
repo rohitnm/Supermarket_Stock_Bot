@@ -1,1 +1,1 @@
-# Supermarket_Stock_Bot
+# Supermarket Stock Monitoring Using ROS Based ROBOT
