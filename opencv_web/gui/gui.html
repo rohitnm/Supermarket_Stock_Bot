@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+
+  <script type="text/javascript" src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+
+  <script type="text/javascript" type="text/javascript">
+    var ros = new ROSLIB.Ros({
+      url: 'ws://localhost:9090'
+    });
+
+    ros.on('connection', function () {
+      document.getElementById("status").innerHTML = "Connected";
+    });
+
+    ros.on('error', function (error) {
+      document.getElementById("status").innerHTML = "Error";
+    });
+
+    ros.on('close', function () {
+      document.getElementById("status").innerHTML = "Closed";
+    });
+
+/*======================================================================================*/
+/*-------------------------------------- Shelf ---------------------------------------- */
+/*======================================================================================*/
+    var refill1 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/shelf_1',
+      messageType: 'std_msgs/String'
+    });
+
+    refill1.subscribe(function (m) {
+      document.getElementById("shelf1").innerHTML = m.data;
+    });
+
+    var refill2 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/shelf_2',
+      messageType: 'std_msgs/String'
+    });
+
+    refill2.subscribe(function (m) {
+      document.getElementById("shelf2").innerHTML = m.data;
+    });
+
+    var refill3 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/shelf_3',
+      messageType: 'std_msgs/String'
+    });
+
+    refill3.subscribe(function (m) {
+      document.getElementById("shelf3").innerHTML = m.data;
+    });
+/*======================================================================================*/
+    var refill4 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/shelf_4',
+      messageType: 'std_msgs/String'
+    });
+
+    refill4.subscribe(function (m) {
+      document.getElementById("shelf4").innerHTML = m.data;
+    });
+
+    var refill5 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/shelf_5',
+      messageType: 'std_msgs/String'
+    });
+
+    refill5.subscribe(function (m) {
+      document.getElementById("shelf5").innerHTML = m.data;
+    });
+
+    var refill6 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/shelf_6',
+      messageType: 'std_msgs/String'
+    });
+
+    refill6.subscribe(function (m) {
+      document.getElementById("shelf6").innerHTML = m.data;
+    });
+
+    var refill7 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/shelf_7',
+      messageType: 'std_msgs/String'
+    });
+
+    refill7.subscribe(function (m) {
+      document.getElementById("shelf7").innerHTML = m.data;
+    });
+
+    var refill8 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/shelf_8',
+      messageType: 'std_msgs/String'
+    });
+
+    refill8.subscribe(function (m) {
+      document.getElementById("shelf8").innerHTML = m.data;
+    });
+
+    var refill9 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/shelf_9',
+      messageType: 'std_msgs/String'
+    });
+
+    refill9.subscribe(function (m) {
+      document.getElementById("shelf9").innerHTML = m.data;
+    });
+/*======================================================================================*/
+    var refill10 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/shelf_10',
+      messageType: 'std_msgs/String'
+    });
+
+    refill10.subscribe(function (m) {
+      document.getElementById("shelf10").innerHTML = m.data;
+    });
+
+    var refill11 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/shelf_11',
+      messageType: 'std_msgs/String'
+    });
+
+    refill11.subscribe(function (m) {
+      document.getElementById("shelf11").innerHTML = m.data;
+    });
+
+    var refill12 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/shelf_12',
+      messageType: 'std_msgs/String'
+    });
+
+    refill12.subscribe(function (m) {
+      document.getElementById("shelf12 ").innerHTML = m.data;
+    });
+
+    var refill13 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/shelf_13',
+      messageType: 'std_msgs/String'
+    });
+
+    refill13.subscribe(function (m) {
+      document.getElementById("shelf13").innerHTML = m.data;
+    });
+
+    var refill14 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/shelf_14',
+      messageType: 'std_msgs/String'
+    });
+
+    refill14.subscribe(function (m) {
+      document.getElementById("shelf14").innerHTML = m.data;
+    });
+/*======================================================================================*/
+    var refill15 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/shelf_15',
+      messageType: 'std_msgs/String'
+    });
+
+    refill15.subscribe(function (m) {
+      document.getElementById("shelf15").innerHTML = m.data;
+    });
+
+    var refill16 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/shelf_16',
+      messageType: 'std_msgs/String'
+    });
+
+    refill16.subscribe(function (m) {
+      document.getElementById("shelf16").innerHTML = m.data;
+    });
+
+/*======================================================================================*/
+/*----------------------------------- Biscuit Box ------------------------------------- */
+/*======================================================================================*/
+    var biscuit_box1 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/biscuit_1',
+      messageType: 'std_msgs/String'
+    });
+
+    biscuit_box1.subscribe(function (m) {
+      document.getElementById("biscuit1").innerHTML = m.data;
+    });
+
+    var biscuit_box2 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/biscuit_2',
+      messageType: 'std_msgs/String'
+    });
+
+    biscuit_box2.subscribe(function (m) {
+      document.getElementById("biscuit2").innerHTML = m.data;
+    });
+
+    var biscuit_box3 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/biscuit_3',
+      messageType: 'std_msgs/String'
+    });
+
+    biscuit_box3.subscribe(function (m) {
+      document.getElementById("biscuit3").innerHTML = m.data;
+    });
+/*======================================================================================*/
+    var biscuit_box4 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/biscuit_4',
+      messageType: 'std_msgs/String'
+    });
+
+    biscuit_box4.subscribe(function (m) {
+      document.getElementById("biscuit4").innerHTML = m.data;
+    });
+
+    var biscuit_box5 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/biscuit_5',
+      messageType: 'std_msgs/String'
+    });
+
+    biscuit_box5.subscribe(function (m) {
+      document.getElementById("biscuit5").innerHTML = m.data;
+    });
+
+    var biscuit_box6 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/biscuit_6',
+      messageType: 'std_msgs/String'
+    });
+
+    biscuit_box6.subscribe(function (m) {
+      document.getElementById("biscuit6").innerHTML = m.data;
+    });
+/*======================================================================================*/
+/*----------------------------------- Milk Carton ------------------------------------- */
+/*======================================================================================*/
+    var milk_carton1 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/milk_1',
+      messageType: 'std_msgs/String'
+    });
+
+    milk_carton1.subscribe(function (m) {
+      document.getElementById("milk1").innerHTML = m.data;
+    });
+
+    var milk_carton2 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/milk_2',
+      messageType: 'std_msgs/String'
+    });
+
+    milk_carton2.subscribe(function (m) {
+      document.getElementById("milk2").innerHTML = m.data;
+    });
+
+    var milk_carton3 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/milk_3',
+      messageType: 'std_msgs/String'
+    });
+
+    milk_carton3.subscribe(function (m) {
+      document.getElementById("milk3").innerHTML = m.data;
+    });
+/*======================================================================================*/
+    var milk_carton4 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/milk_4',
+      messageType: 'std_msgs/String'
+    });
+
+    milk_carton4.subscribe(function (m) {
+      document.getElementById("milk4").innerHTML = m.data;
+    });
+
+    var milk_carton5 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/milk_5',
+      messageType: 'std_msgs/String'
+    });
+
+    milk_carton5.subscribe(function (m) {
+      document.getElementById("milk5").innerHTML = m.data;
+    });
+
+    var milk_carton6 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/milk_6',
+      messageType: 'std_msgs/String'
+    });
+
+    milk_carton6.subscribe(function (m) {
+      document.getElementById("milk6").innerHTML = m.data;
+    });
+/*======================================================================================*/
+/*------------------------------------- Salt Pack ------------------------------------- */
+/*======================================================================================*/
+    var salt_pack1 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/salt_1',
+      messageType: 'std_msgs/String'
+    });
+
+    salt_pack1.subscribe(function (m) {
+      document.getElementById("salt1").innerHTML = m.data;
+    });
+
+    var salt_pack2 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/salt_2',
+      messageType: 'std_msgs/String'
+    });
+
+    salt_pack2.subscribe(function (m) {
+      document.getElementById("salt2").innerHTML = m.data;
+    });
+
+    var salt_pack3 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/salt_3',
+      messageType: 'std_msgs/String'
+    });
+
+    salt_pack3.subscribe(function (m) {
+      document.getElementById("salt3").innerHTML = m.data;
+    });
+/*======================================================================================*/
+    var salt_pack4 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/salt_4',
+      messageType: 'std_msgs/String'
+    });
+
+    salt_pack4.subscribe(function (m) {
+      document.getElementById("salt4").innerHTML = m.data;
+    });
+
+    var salt_pack5 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/salt_5',
+      messageType: 'std_msgs/String'
+    });
+
+    salt_pack5.subscribe(function (m) {
+      document.getElementById("salt5").innerHTML = m.data;
+    });
+
+    var salt_pack6 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/salt_6',
+      messageType: 'std_msgs/String'
+    });
+
+    salt_pack6.subscribe(function (m) {
+      document.getElementById("salt6").innerHTML = m.data;
+    });
+/*======================================================================================*/
+/*------------------------------------ Tea Time --------------------------------------- */
+/*======================================================================================*/
+    var tea_time1 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/tea_1',
+      messageType: 'std_msgs/String'
+    });
+
+    tea_time1.subscribe(function (m) {
+      document.getElementById("tea1").innerHTML = m.data;
+    });
+
+    var tea_time2 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/tea_2',
+      messageType: 'std_msgs/String'
+    });
+
+    tea_time2.subscribe(function (m) {
+      document.getElementById("tea2").innerHTML = m.data;
+    });
+
+    var tea_time3 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/tea_3',
+      messageType: 'std_msgs/String'
+    });
+
+    tea_time3.subscribe(function (m) {
+      document.getElementById("tea3").innerHTML = m.data;
+    });
+/*======================================================================================*/
+    var tea_time4 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/tea_4',
+      messageType: 'std_msgs/String'
+    });
+
+    tea_time4.subscribe(function (m) {
+      document.getElementById("tea4").innerHTML = m.data;
+    });
+
+    var tea_time5 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/tea_5',
+      messageType: 'std_msgs/String'
+    });
+
+    tea_time5.subscribe(function (m) {
+      document.getElementById("tea5").innerHTML = m.data;
+    });
+
+    var tea_time6 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/tea_6',
+      messageType: 'std_msgs/String'
+    });
+
+    tea_time6.subscribe(function (m) {
+      document.getElementById("tea6").innerHTML = m.data;
+    });
+/*======================================================================================*/
+/*---------------------------------- Tomato Sauce ------------------------------------- */
+/*======================================================================================*/
+    var tomato_sauce1 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/sauce_1',
+      messageType: 'std_msgs/String'
+    });
+
+    tomato_sauce1.subscribe(function (m) {
+      document.getElementById("sauce1").innerHTML = m.data;
+    });
+
+    var tomato_sauce2 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/sauce_2',
+      messageType: 'std_msgs/String'
+    });
+
+    tomato_sauce2.subscribe(function (m) {
+      document.getElementById("sauce2").innerHTML = m.data;
+    });
+
+    var tomato_sauce3 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/sauce_3',
+      messageType: 'std_msgs/String'
+    });
+
+    tomato_sauce3.subscribe(function (m) {
+      document.getElementById("sauce3").innerHTML = m.data;
+    });
+/*======================================================================================*/
+    var tomato_sauce4 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/sauce_4',
+      messageType: 'std_msgs/String'
+    });
+
+    tomato_sauce4.subscribe(function (m) {
+      document.getElementById("sauce4").innerHTML = m.data;
+    });
+
+    var tomato_sauce5 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/sauce_5',
+      messageType: 'std_msgs/String'
+    });
+
+    tomato_sauce5.subscribe(function (m) {
+      document.getElementById("sauce5").innerHTML = m.data;
+    });
+
+    var tomato_sauce6 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/sauce_6',
+      messageType: 'std_msgs/String'
+    });
+
+    tomato_sauce6.subscribe(function (m) {
+      document.getElementById("sauce6").innerHTML = m.data;
+    });
+/*======================================================================================*/
+/*----------------------------------- Tomato Soup ------------------------------------- */
+/*======================================================================================*/
+    var tomato_soup1 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/soup_1',
+      messageType: 'std_msgs/String'
+    });
+
+    tomato_soup1.subscribe(function (m) {
+      document.getElementById("soup1").innerHTML = m.data;
+    });
+
+    var tomato_soup2 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/soup_2',
+      messageType: 'std_msgs/String'
+    });
+
+    tomato_soup2.subscribe(function (m) {
+      document.getElementById("soup2").innerHTML = m.data;
+    });
+
+    var tomato_soup3 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/soup_3',
+      messageType: 'std_msgs/String'
+    });
+
+    tomato_soup3.subscribe(function (m) {
+      document.getElementById("soup3").innerHTML = m.data;
+    });
+/*======================================================================================*/
+    var tomato_soup4 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/soup_4',
+      messageType: 'std_msgs/String'
+    });
+
+    tomato_soup4.subscribe(function (m) {
+      document.getElementById("soup4").innerHTML = m.data;
+    });
+
+    var tomato_soup5 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/soup_5',
+      messageType: 'std_msgs/String'
+    });
+
+    tomato_soup5.subscribe(function (m) {
+      document.getElementById("soup5").innerHTML = m.data;
+    });
+
+    var tomato_soup6 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/soup_6',
+      messageType: 'std_msgs/String'
+    });
+
+    tomato_soup6.subscribe(function (m) {
+      document.getElementById("soup6").innerHTML = m.data;
+    });
+/*======================================================================================*/
+/*--------------------------------- Vollkorn Toast ------------------------------------ */
+/*======================================================================================*/
+    var vollkorn_toast1 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/toast_1',
+      messageType: 'std_msgs/String'
+    });
+
+    vollkorn_toast1.subscribe(function (m) {
+      document.getElementById("toast1").innerHTML = m.data;
+    });
+
+    var vollkorn_toast2 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/toast_2',
+      messageType: 'std_msgs/String'
+    });
+
+    vollkorn_toast2.subscribe(function (m) {
+      document.getElementById("toast2").innerHTML = m.data;
+    });
+
+    var vollkorn_toast3 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/toast_3',
+      messageType: 'std_msgs/String'
+    });
+
+    vollkorn_toast3.subscribe(function (m) {
+      document.getElementById("toast3").innerHTML = m.data;
+    });
+/*======================================================================================*/
+    var vollkorn_toast4 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/toast_4',
+      messageType: 'std_msgs/String'
+    });
+
+    vollkorn_toast4.subscribe(function (m) {
+      document.getElementById("toast4").innerHTML = m.data;
+    });
+
+    var vollkorn_toast5 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/toast_5',
+      messageType: 'std_msgs/String'
+    });
+
+    vollkorn_toast5.subscribe(function (m) {
+      document.getElementById("toast5").innerHTML = m.data;
+    });
+
+    var vollkorn_toast6 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/toast_6',
+      messageType: 'std_msgs/String'
+    });
+
+    vollkorn_toast6.subscribe(function (m) {
+      document.getElementById("toast6").innerHTML = m.data;
+    });
+/*======================================================================================*/
+/*------------------------------------- Beer Can -------------------------------------- */
+/*======================================================================================*/
+    var beer_can1 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/beer_1',
+      messageType: 'std_msgs/String'
+    });
+
+    beer_can1.subscribe(function (m) {
+      document.getElementById("beer1").innerHTML = m.data;
+    });
+
+    var beer_can2 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/beer_2',
+      messageType: 'std_msgs/String'
+    });
+
+    beer_can2.subscribe(function (m) {
+      document.getElementById("beer2").innerHTML = m.data;
+    });
+
+    var beer_can3 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/beer_3',
+      messageType: 'std_msgs/String'
+    });
+
+    beer_can3.subscribe(function (m) {
+      document.getElementById("beer3").innerHTML = m.data;
+    });
+/*======================================================================================*/
+    var beer_can4 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/beer_4',
+      messageType: 'std_msgs/String'
+    });
+
+    beer_can4.subscribe(function (m) {
+      document.getElementById("beer4").innerHTML = m.data;
+    });
+
+    var beer_can5 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/beer_5',
+      messageType: 'std_msgs/String'
+    });
+
+    beer_can5.subscribe(function (m) {
+      document.getElementById("beer5").innerHTML = m.data;
+    });
+
+    var beer_can6 = new ROSLIB.Topic({
+      ros: ros,
+      name: '/beer_6',
+      messageType: 'std_msgs/String'
+    });
+
+    beer_can6.subscribe(function (m) {
+      document.getElementById("beer6").innerHTML = m.data;
+    });
+/*======================================================================================*/
+/*----------------------------------- Script Over ------------------------------------- */
+/*======================================================================================*/
+  </script>
+  <link rel="stylesheet" href="mystyle.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+</head>
+<style>
+  #para1 {
+    color: blue;
+    font-size: 25px
+  }
+
+  #para2 {
+    color: green;
+    font-size: 25px
+  }
+
+  #para3 {
+    color: red;
+    font-size: 25px
+  }
+
+  #para4 {
+    color: black;
+    font-size: 40px;
+  }
+
+  #para5 {
+    color: black;
+    font-size: 25px
+  }
+</style>
+<!--style="background-color:rgb(115, 176, 238); border:2px solid DodgerBlue;"-->
+
+<body>
+  <div class="container">
+    <h1>ROS Shelf Monitoring User Interface</h1>
+    <p id="para4">Connection status: <span id="status"></span></p>
+    <div class="row">
+      <div class="col-md">
+        <table class="table">
+          <!--<thead class="thead-light">
+            <tr>
+              <th scope="col">Buttons</th>
+            </tr>
+          </thead>-->
+          <tbody>
+            <tr>
+              <td>
+                <button type="button" class="btn btn-primary btn-sm">Show Shelf Status</button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="/home/rohit/catkin_ws/src/opencv_web/gui/joy-stick.html" target="_blank">
+                <button type="button" class="btn btn-primary btn-sm">Joystick Motion</button>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="/home/rohit/catkin_ws/src/opencv_web/gui/camera.html" target="_blank">
+                <button type="button" class="btn btn-primary btn-sm">Camera Roll</button>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="/home/rohit/catkin_ws/src/opencv_web/gui/future-dev.html" target="_blank">
+                <button type="button" class="btn btn-primary btn-sm">Future Development</button>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+<!--===========================================================-->
+<!-----------------------Biscuit Box----------------------------->
+<!--===========================================================-->
+      <div class="col-md">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Shelf 1</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Biscuit Box</td>
+            </tr>
+            <tr>
+              <td>Rack 1:  <span id="biscuit1"></span> </td>
+            </tr>
+            <tr>
+              <td>Rack 2:  <span id="biscuit2"></span></td>
+            </tr>
+            <tr>
+              <td>Rack 3:  <span id="biscuit3"></span></td>
+            </tr>
+            <tr>
+              <td>Need to refill: <span id="shelf1"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Shelf 2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Biscuit Box</td>
+            </tr>
+            <tr>
+              <td>Rack 1:  <span id="biscuit4"></span> </td>
+            </tr>
+            <tr>
+              <td>Rack 2:  <span id="biscuit5"></span></td>
+            </tr>
+            <tr>
+              <td>Rack 3:  <span id="biscuit6"></span></td>
+            </tr>
+            <tr>
+              <td>Need to refill: <span id="shelf2"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+<!--===========================================================-->
+<!-----------------------Milk Carton----------------------------->
+<!--===========================================================-->
+      <div class="col-md">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Shelf 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Milk Carton</td>
+            </tr>
+            <tr>
+              <td>Rack 1:  <span id="milk1"></span> </td>
+            </tr>
+            <tr>
+              <td>Rack 2:  <span id="milk2"></span></td>
+            </tr>
+            <tr>
+              <td>Rack 3:  <span id="milk3"></span></td>
+            </tr>
+            <tr>
+              <td>Need to refill:  <span id="shelf3"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Shelf 4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Milk Carton</td>
+            </tr>
+            <tr>
+              <td>Rack 1:  <span id="milk4"></span> </td>
+            </tr>
+            <tr>
+              <td>Rack 2:  <span id="milk5"></span></td>
+            </tr>
+            <tr>
+              <td>Rack 3:  <span id="milk6"></span></td>
+            </tr>
+            <tr>
+              <td>Need to refill:  <span id="shelf4"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+<!--===========================================================-->
+<!------------------------Salt Pack------------------------------>
+<!--===========================================================-->
+    <div class="row">
+      <div class="col-md"></div>
+      <div class="col-md">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Shelf 5</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Salt Pack</td>
+            </tr>
+            <tr>
+              <td>Rack 1:  <span id="salt1"></span> </td>
+            </tr>
+            <tr>
+              <td>Rack 2:  <span id="salt2"></span></td>
+            </tr>
+            <tr>
+              <td>Rack 3:  <span id="salt3"></span></td>
+            </tr>
+            <tr>
+              <td>Need to refill:  <span id="shelf5"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Shelf 6</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Salt Pack</td>
+            </tr>
+            <tr>
+              <td>Rack 1:  <span id="salt4"></span> </td>
+            </tr>
+            <tr>
+              <td>Rack 2:  <span id="salt5"></span></td>
+            </tr>
+            <tr>
+              <td>Rack 3:  <span id="salt6"></span></td>
+            </tr>
+            <tr>
+              <td>Need to refill: <span id="shelf6"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+<!--===========================================================-->
+<!--------------------------Tea Time----------------------------->
+<!--===========================================================-->
+      <div class="col-md">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Shelf 7</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tea Time</td>
+            </tr>
+            <tr>
+              <td>Rack 1:  <span id="tea1"></span> </td>
+            </tr>
+            <tr>
+              <td>Rack 2:  <span id="tea2"></span></td>
+            </tr>
+            <tr>
+              <td>Rack 3:  <span id="tea3"></span></td>
+            </tr>
+            <tr>
+              <td>Need to refill:  <span id="shelf7"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Shelf 8</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tea Time</td>
+            </tr>
+            <tr>
+              <td>Rack 1:  <span id="tea4"></span> </td>
+            </tr>
+            <tr>
+              <td>Rack 2:  <span id="tea5"></span></td>
+            </tr>
+            <tr>
+              <td>Rack 3:  <span id="tea6"></span></td>
+            </tr>
+            <tr>
+              <td>Need to refill:  <span id="shelf8"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+<!--===========================================================-->
+<!-----------------------Tomato Sauce---------------------------->
+<!--===========================================================-->
+    <div class="row">
+      <div class="col-md"></div>
+      <div class="col-md">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Shelf 9</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tomato Sauce</td>
+            </tr>
+            <tr>
+              <td>Rack 1:  <span id="sauce1"></span> </td>
+            </tr>
+            <tr>
+              <td>Rack 2:  <span id="sauce2"></span></td>
+            </tr>
+            <tr>
+              <td>Rack 3:  <span id="sauce3"></span></td>
+            </tr>
+            <tr>
+              <td>Need to refill: <span id="shelf9"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Shelf 10</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tomato Sauce</td>
+            </tr>
+            <tr>
+              <td>Rack 1:  <span id="sauce4"></span> </td>
+            </tr>
+            <tr>
+              <td>Rack 2:  <span id="sauce5"></span></td>
+            </tr>
+            <tr>
+              <td>Rack 3:  <span id="sauce6"></span></td>
+            </tr>
+            <tr>
+              <td>Need to refill:  <span id="shelf10"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+<!--===========================================================-->
+<!-----------------------Tomato Soup----------------------------->
+<!--===========================================================-->
+      <div class="col-md">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Shelf 11</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tomato Soup</td>
+            </tr>
+            <tr>
+              <td>Rack 1:  <span id="soup1"></span> </td>
+            </tr>
+            <tr>
+              <td>Rack 2:  <span id="soup2"></span></td>
+            </tr>
+            <tr>
+              <td>Rack 3:  <span id="soup3"></span></td>
+            </tr>
+            <tr>
+              <td>Need to refill:  <span id="shelf11"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Shelf 12</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tomato Soup</td>
+            </tr>
+            <tr>
+              <td>Rack 1:  <span id="soup4"></span> </td>
+            </tr>
+            <tr>
+              <td>Rack 2:  <span id="soup5"></span></td>
+            </tr>
+            <tr>
+              <td>Rack 3:  <span id="soup6"></span></td>
+            </tr>
+            <tr>
+              <td>Need to refill:  <span id="shelf12"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+<!--===========================================================-->
+<!-----------------------Vollkorn Toast----------------------------->
+<!--===========================================================-->
+    <div class="row">
+      <div class="col-md"></div>
+      <div class="col-md">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Shelf 13</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Vollkorn Toast</td>
+            </tr>
+            <tr>
+              <td>Rack 1:  <span id="toast1"></span> </td>
+            </tr>
+            <tr>
+              <td>Rack 2:  <span id="toast2"></span></td>
+            </tr>
+            <tr>
+              <td>Rack 3:  <span id="toast3"></span></td>
+            </tr>
+            <tr>
+              <td>Need to refill:  <span id="shelf13"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Shelf 14</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Vollkorn Toast</td>
+            </tr>
+            <tr>
+              <td>Rack 1:  <span id="toast4"></span> </td>
+            </tr>
+            <tr>
+              <td>Rack 2:  <span id="toast5"></span></td>
+            </tr>
+            <tr>
+              <td>Rack 3:  <span id="toast6"></span></td>
+            </tr>
+            <tr>
+              <td>Need to refill:  <span id="shelf14"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+<!--===========================================================-->
+<!-------------------------Beer Can------------------------------>
+<!--===========================================================-->
+      <div class="col-md">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Shelf 15</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Beer Can</td>
+            </tr>
+            <tr>
+              <td>Rack 1:  <span id="beer1"></span> </td>
+            </tr>
+            <tr>
+              <td>Rack 2:  <span id="beer2"></span></td>
+            </tr>
+            <tr>
+              <td>Rack 3:  <span id="beer3"></span></td>
+            </tr>
+            <tr>
+              <td>Need to refill: <span id="shelf15"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Shelf 16</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Beer Can</td>
+            </tr>
+            <tr>
+              <td>Rack 1:  <span id="beer4"></span> </td>
+            </tr>
+            <tr>
+              <td>Rack 2:  <span id="beer5"></span></td>
+            </tr>
+            <tr>
+              <td>Rack 3:  <span id="beer6"></span></td>
+            </tr>
+            <tr>
+              <td>Need to refill: <span id="shelf16"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+
+  <script type="text/javascript" src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+
+  <script type="text/javascript" type="text/javascript">
+    var ros = new ROSLIB.Ros({
+      url: 'ws://localhost:9090'
+    });
+
+    ros.on('connection', function () {
+      document.getElementById("status").innerHTML = "Connected";
+    });
+
+    ros.on('error', function (error) {
+      document.getElementById("status").innerHTML = "Error";
+    });
+
+    ros.on('close', function () {
+      document.getElementById("status").innerHTML = "Closed";
+    });
+
+    var green_listener = new ROSLIB.Topic({
+      ros: ros,
+      name: '/green_count',
+      messageType: 'std_msgs/String'
+    });
+
+    green_listener.subscribe(function (m) {
+      document.getElementById("green").innerHTML = m.data;
+    });
+
+    var blue_listener = new ROSLIB.Topic({
+      ros: ros,
+      name: '/blue_count',
+      messageType: 'std_msgs/String'
+    });
+
+    blue_listener.subscribe(function (m) {
+      document.getElementById("blue").innerHTML = m.data;
+    });
+
+    var red_listener = new ROSLIB.Topic({
+      ros: ros,
+      name: '/red_count',
+      messageType: 'std_msgs/String'
+    });
+
+    red_listener.subscribe(function (m) {
+      document.getElementById("red").innerHTML = m.data;
+    });
+
+    var shelf_listener = new ROSLIB.Topic({
+      ros: ros,
+      name: '/shelf_number',
+      messageType: 'std_msgs/Int16'
+    });
+
+    shelf_listener.subscribe(function (m) {
+      document.getElementById("shelf").innerHTML = m.data;
+    });
+
+  </script>
+<link rel="stylesheet" href="mystyle.css">
+</head>
+<style>
+  #para1 {
+    color: blue;
+    font-size: 25px
+  }
+  #para2 {
+    color: green;
+    font-size: 25px
+  }
+  #para3 {
+    color: red;
+    font-size: 25px
+  }
+  #para4 {
+    color: black;
+    font-size: 40px;
+  }
+  #para5 {
+    color: black;
+    font-size: 25px
+  }
+</style>
+<!--style="background-color:rgb(115, 176, 238); border:2px solid DodgerBlue;"-->
+<body>
+  <h1>ROS Shelf Monitoring User Interface</h1>
+  <p id="para4">Connection status: <span id="status"></span></p>
+  <p id="para5">Shelf Number: <span id="shelf"></span></p>
+  <p id="para1">Count of Blue Objects: <span id="blue"></span></p>
+  <p id="para2">Count of Green Objects: <span id="green"></span></p>
+  <p id="para3">Count of Red Objects: <span id="red"></span></p>
+</body>
+
+</html>
