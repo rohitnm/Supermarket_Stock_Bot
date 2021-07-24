@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<robot name="orbotox">
+
+
+  <!--gazebo>
+  <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+    <updateRate>100.0</updateRate>
+    <robotNamespace>/orbotox</robotNamespace>
+    <leftFrontJoint>wheel2_joint</leftFrontJoint>
+    <rightFrontJoint>wheel1_joint</rightFrontJoint>
+    <leftRearJoint>wheel3_joint</leftRearJoint>
+    <rightRearJoint>wheel4_joint</rightRearJoint>
+    <wheelSeparation>0.65</wheelSeparation>
+    <wheelDiameter>0.127</wheelDiameter>
+    <robotBaseFrame>base_link</robotBaseFrame>
+    <torque>20</torque>
+    <topicName>cmd_vel</topicName>
+    <broadcastTF>true</broadcastTF>
+  </plugin>
+  </gazebo-->
+
+
+  <gazebo>
+    <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryRate>20.0</odometryRate>
+      <robotBaseFrame>base_link</robotBaseFrame>
+    </plugin>
+  </gazebo>
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.063937 -0.10833 0.033362" rpy="0 0 0" />
+      <mass value="0.0010628" />
+      <inertia ixx="2.0186E-08" ixy="2.4126E-25" ixz="-1.13E-24" iyy="2.0186E-08" iyz="-5.7694E-25" izz="1.6792E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <link name="body_link">
+    <inertial>
+      <origin xyz="-0.059075 -0.10835 0.096944" rpy="0 0 0" />
+      <mass value="3" />
+      <inertia ixx="0.021775" ixy="1.5385E-08" ixz="1.7745E-18" iyy="0.043574" iyz="1.8448E-18" izz="0.064943" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/body_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/body_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint name="base_body_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="body_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+
+   <gazebo reference="body_link">
+        <kp>1000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+
+  <link name="wheel1_link">
+    <inertial>
+      <origin xyz="-2.0561E-08 -0.052961 -1.1562E-07" rpy="0 0 0" />
+      <mass value="0.1" />
+      <inertia ixx="0.00030067" ixy="2.0195E-07" ixz="-3.9763E-08" iyy="0.00049283" iyz="-3.5914E-08" izz="0.00030045" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/wheel1_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/wheel1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint name="wheel1_joint" type="continuous">
+    <origin xyz="0.23716 -0.31048 0.090058" rpy="0 0 0" />
+    <parent link="body_link" />
+    <child link="wheel1_link" />
+    <axis xyz="0 1 0" />
+  </joint>
+
+
+   <gazebo reference="wheel1_link">
+        <kp>1000000.0</kp>
+        <kd>0.1</kd>
+        <mu1>0</mu1>
+        <mu2>0</mu2>
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+
+  <link name="wheel2_link">
+    <inertial>
+      <origin xyz="1.4883E-08 0.05296 -7.9687E-08" rpy="0 0 0" />
+      <mass value="0.1" />
+      <inertia ixx="0.00030068" ixy="2.0511E-07" ixz="2.4557E-09" iyy="0.00049284" iyz="2.1839E-09" izz="0.00030045" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/wheel2_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/wheel2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint name="wheel2_joint" type="continuous">
+    <origin xyz="0.237163125315538 0.0938144280797989 0.0900582443330503" rpy="0 0 0" />
+    <parent link="body_link" />
+    <child link="wheel2_link" />
+    <axis xyz="0 1 0" />
+  </joint>
+
+
+   <gazebo reference="wheel2_link">
+        <kp>1000000.0</kp>
+        <kd>0.1</kd>
+        <mu1>0</mu1>
+        <mu2>0</mu2>
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+
+  <link name="wheel3_link">
+    <inertial>
+      <origin xyz="1.2499E-09 0.05296 -1.1743E-07" rpy="0 0 0" />
+      <mass value="0.1" />
+      <inertia ixx="0.00030068" ixy="2.0511E-07" ixz="2.4557E-09" iyy="0.00049283" iyz="2.1839E-09" izz="0.00030044" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/wheel3_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/wheel3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint name="wheel3_joint" type="continuous">
+    <origin xyz="-0.36504 0.093814 0.090058" rpy="0 0 0" />
+    <parent link="body_link" />
+    <child link="wheel3_link" />
+    <axis xyz="0 1 0" />
+  </joint>
+
+
+   <gazebo reference="wheel3_link">
+        <kp>1000000.0</kp>
+        <kd>0.1</kd>
+        <mu1>0</mu1>
+        <mu2>0</mu2>
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+
+  <link name="wheel4_link">
+    <inertial>
+      <origin xyz="1.4883E-08 -0.05296 -7.9687E-08"  rpy="0 0 0" />
+      <mass value="0.1" />
+      <inertia ixx="0.00030068" ixy="2.0511E-07" ixz="2.4557E-09" iyy="0.00049284" iyz="2.1839E-09" izz="0.00030045" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/wheel4_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/wheel4_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+   <gazebo reference="wheel4_link">
+        <kp>1000000.0</kp>
+        <kd>0.1</kd>
+        <mu1>0</mu1>
+        <mu2>0</mu2>
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+
+  <joint name="wheel4_joint" type="continuous">
+    <origin xyz="-0.365036874684441 -0.310481197853668 0.0900582443330505" rpy="0 0 0" />
+    <parent link="body_link" />
+    <child link="wheel4_link" />
+    <axis xyz="0 1 0" />
+  </joint>
+
+
+  <link name="head_link">
+    <inertial>
+      <origin xyz="-0.39771 -0.082234 0.77185" rpy="0 0 0" />
+      <mass value="0.3" />
+      <inertia ixx="11.871" ixy="0.0069336" ixz="0.044139" iyy="12.114" iyz="-0.75114" izz="0.63733" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/head_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/head_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+   <gazebo reference="head_link">
+        <kp>1000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/White</material>
+    </gazebo>
+
+
+  <joint name="head_joint" type="fixed">
+    <origin xyz="0.336063125315549 0.0880166151130642 0.15547824433304" rpy="0 0 0" />
+    <parent link="body_link" />
+    <child link="head_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+
+  <link name="laser_link">
+    <inertial>
+      <origin xyz="-0.02422 1.2374E-09 -0.0023614" rpy="0 0 0" />
+      <mass value="0.05" />
+      <inertia ixx="0.0002032" ixy="2.7173E-12" ixz="1.1399E-06" iyy="0.00020486" iyz="-4.6627E-12" izz="0.00010862" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/laser_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.6 0.6 0.6 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/laser_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint name="laser_joint" type="fixed">
+    <origin xyz="-0.12608 -0.19635 0.11091" rpy="0 0 0" />
+    <parent link="head_link" />
+    <child link="laser_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+
+   <gazebo reference="laser_link">
+        <kp>1000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Red</material>
+    </gazebo>
+
+
+  <gazebo reference="laser_link">
+    <sensor type="ray" name="head_hokuyo_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>false</visualize>
+      <update_rate>100</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-1.570796</min_angle>
+            <max_angle>1.570796</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>10.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+        <topicName>/orbotox/laser/scan</topicName>
+        <frameName>laser_link</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+
+  <link name="camera1_link">
+    <inertial>
+      <origin xyz="-0.018064 8.6736E-19 -0.00049043" rpy="0 0 0" />
+      <mass value="0.0079229" />
+      <inertia ixx="5.7155E-07" ixy="1.1945E-23" ixz="1.3992E-23" iyy="3.8155E-07" iyz="3.1308E-23" izz="4.1821E-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/camera1_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/camera1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint name="camera1_joint" type="fixed">
+    <origin xyz="-0.4 0.00315 0.20395" rpy="0 0 1.5708" />
+    <parent link="head_link" />
+    <child link="camera1_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+
+   <gazebo reference="camera1_link">
+        <kp>1000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Green</material>
+    </gazebo>
+
+
+  <gazebo reference="camera1_link">
+      <sensor type="camera" name="camera1">
+        <update_rate>30.0</update_rate>
+        <camera name="head">
+  	  <horizontal_fov>1.3962634</horizontal_fov>
+          <image>
+            <format>R8G8B8</format>
+            <width>1020</width>
+            <height>1020</height>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>100</far>
+          </clip>
+        </camera>
+
+        <plugin name="camera_camera_controller" filename="libgazebo_ros_camera.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>0.0</updateRate>
+          <cameraName>orbotox/camera1</cameraName>
+          <imageTopicName>image_raw</imageTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <frameName>camera_link</frameName>
+          <hackBaseline>0.07</hackBaseline>
+          <distortionK1>0.0</distortionK1>
+          <distortionK2>0.0</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>0.0</distortionT1>
+          <distortionT2>0.0</distortionT2>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+
+  <link name="camera2_link">
+    <inertial>
+      <origin xyz="-0.018064 -2.6021E-18 -0.00049043" rpy="0 0 0" />
+      <mass value="0.0079229" />
+      <inertia ixx="5.7155E-07" ixy="4.4286E-24" ixz="7.2822E-22" iyy="3.8155E-07" iyz="3.0372E-23" izz="4.1821E-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/camera2_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/camera2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint name="camera2_joint" type="fixed">
+    <origin xyz="-0.4 0.00315 1.004" rpy="0 0 1.5708" />
+    <parent link="head_link" />
+    <child link="camera2_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+
+   <gazebo reference="camera2_link">
+        <kp>1000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Green</material>
+    </gazebo>
+
+
+  <gazebo reference="camera2_link">
+      <sensor type="camera" name="camera2">
+        <update_rate>30.0</update_rate>
+        <camera name="head">
+  	  <horizontal_fov>1.3962634</horizontal_fov>
+          <image>
+            <format>R8G8B8</format>
+            <width>1020</width>
+            <height>1020</height>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>100</far>
+          </clip>
+        </camera>
+
+        <plugin name="camera_camera_controller" filename="libgazebo_ros_camera.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>0.0</updateRate>
+          <cameraName>orbotox/camera2</cameraName>
+          <imageTopicName>image_raw</imageTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <frameName>camera_link</frameName>
+          <hackBaseline>0.07</hackBaseline>
+          <distortionK1>0.0</distortionK1>
+          <distortionK2>0.0</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>0.0</distortionT1>
+          <distortionT2>0.0</distortionT2>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+
+  <link name="camera3_link">
+    <inertial>
+      <origin xyz="-0.018064 -8.6736E-19 -0.00049043" rpy="0 0 0" />
+      <mass value="0.0079229" />
+      <inertia ixx="5.7155E-07" ixy="5.2411E-24" ixz="7.3495E-22" iyy="3.8155E-07" iyz="3.7511E-23" izz="4.1821E-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/camera3_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/camera3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint name="camera3_joint" type="fixed">
+    <origin xyz="-0.4 0.00315 1.804" rpy="0 0 1.5708" />
+    <parent link="head_link" />
+    <child link="camera3_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+
+   <gazebo reference="camera3_link">
+        <kp>1000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Green</material>
+    </gazebo>
+
+
+  <gazebo reference="camera3_link">
+      <sensor type="camera" name="camera3">
+        <update_rate>30.0</update_rate>
+        <camera name="head">
+  	  <horizontal_fov>1.3962634</horizontal_fov>
+          <image>
+            <format>R8G8B8</format>
+            <width>1020</width>
+            <height>1020</height>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>100</far>
+          </clip>
+        </camera>
+
+        <plugin name="camera_camera_controller" filename="libgazebo_ros_camera.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>0.0</updateRate>
+          <cameraName>orbotox/camera3</cameraName>
+          <imageTopicName>image_raw</imageTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <frameName>camera_link</frameName>
+          <hackBaseline>0.07</hackBaseline>
+          <distortionK1>0.0</distortionK1>
+          <distortionK2>0.0</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>0.0</distortionT1>
+          <distortionT2>0.0</distortionT2>
+        </plugin>
+      </sensor>
+    </gazebo>
+
+
+  <link name="camera4_link">
+    <inertial>
+      <origin xyz="-0.1982 -0.41009 -1.8005" rpy="0 0 0" />
+      <mass value="0.0079229" />
+      <inertia ixx="3.8155E-07" ixy="-1.0955E-23" ixz="-1.7968E-23" iyy="5.7155E-07" iyz="1.0562E-23" izz="4.1821E-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/camera4_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://orbotox/meshes/camera4_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint name="camera4_joint" type="fixed">
+    <origin xyz="-0.4 0.00315 1.804" rpy="0 0 1.5708" />
+    <parent link="head_link" />
+    <child link="camera4_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+
+   <gazebo reference="camera4_link">
+        <kp>1000.0</kp>
+        <kd>1000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>
+        <material>Gazebo/Green</material>
+    </gazebo>
+
+
+</robot>
