@@ -1,1 +1,1 @@
-# Supermarket Stock Monitoring Using ROS Based ROBOT
+# Supermarket Stock Monitoring Using ROS Based Robot
